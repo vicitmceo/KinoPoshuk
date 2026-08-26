@@ -21,6 +21,16 @@ Application / Domain / Infrastructure / SharedKernel).
 - **Обране** — додавання/перегляд/видалення фільмів (SQL Server)
 - **Історія** — автоматичний лог усіх пошукових запитів
 
+## Скріншоти роботи додатку
+
+![Порожня форма пошуку](screenshots/search-empty.png)
+
+![Результат пошуку фільму](screenshots/search-result.png)
+
+![Вкладка "Обране"](screenshots/favorites.png)
+
+![Вкладка "Історія"](screenshots/history.png)
+
 ## Запуск
 
 Потрібен SQL Server LocalDB. Рядок підключення в `appsettings.json`
