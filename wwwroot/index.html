@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Кінопошук</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -9,14 +10,32 @@
     <div class="container">
         <h1>Кінопошук</h1>
 
-        <div class="search-box">
-            <input type="text" id="movieTitle" placeholder="Введіть назву фільму..." />
-            <button id="searchBtn">Пошук</button>
-        </div>
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="search">Пошук</button>
+            <button class="tab-btn" data-tab="favorites">Обране</button>
+            <button class="tab-btn" data-tab="history">Історія</button>
+        </nav>
 
-        <div id="result"></div>
+        <section id="tab-search" class="tab-panel active">
+            <div class="search-box">
+                <input type="text" id="movieTitle" placeholder="Введіть назву фільму..." />
+                <button id="searchBtn">Пошук</button>
+            </div>
+            <div id="result"></div>
+        </section>
+
+        <section id="tab-favorites" class="tab-panel">
+            <div id="favoritesList" class="list-panel">Завантаження...</div>
+        </section>
+
+        <section id="tab-history" class="tab-panel">
+            <div id="historyList" class="list-panel">Завантаження...</div>
+        </section>
     </div>
 
+    <script src="js/tabs.js"></script>
     <script src="js/site.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/history.js"></script>
 </body>
 </html>
