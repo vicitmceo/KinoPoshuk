@@ -1,9 +1,9 @@
-using KinoPoshuk.Application.Interfaces;
-using KinoPoshuk.Application.Services;
-using KinoPoshuk.Domain.Interfaces;
-using KinoPoshuk.Infrastructure.Data;
-using KinoPoshuk.Infrastructure.ExternalServices;
-using KinoPoshuk.Infrastructure.Repositories;
+using KinoPoshuk.BLL.Interfaces;
+using KinoPoshuk.BLL.Services;
+using KinoPoshuk.DAL.Data;
+using KinoPoshuk.DAL.ExternalServices;
+using KinoPoshuk.DAL.Interfaces;
+using KinoPoshuk.DAL.Repositories;
 using KinoPoshuk.Middleware;
 using Microsoft.EntityFrameworkCore;
 

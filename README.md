@@ -2,8 +2,9 @@
 
 Веб-додаток на ASP.NET Core (.NET 9) для пошуку інформації про фільми через
 [OMDb API](https://www.omdbapi.com), зі збереженням "Обраного" та історії
-пошуку в SQL Server. Побудований за Clean Architecture (Presentation /
-Application / Domain / Infrastructure / SharedKernel).
+пошуку в SQL Server. Побудований за 3-рівневою архітектурою PL/BLL/DAL
+(на основі прикладу [sunmeat/aspnetcore_layers](https://github.com/sunmeat/aspnetcore_layers)) —
+три окремі проєкти в `KinoPoshuk.sln`: `KinoPoshuk` (PL), `KinoPoshuk.BLL`, `KinoPoshuk.DAL`.
 
 ## Документація курсового проєкту
 
@@ -43,12 +44,33 @@ dotnet run
 
 Застосунок доступний на порту, вказаному в `Properties/launchSettings.json`.
 
-## Структура
+## Структура (3 шари: PL / BLL / DAL)
 
-- `Controllers/` — Presentation: HTTP-ендпоінти
-- `Middleware/` — обробка помилок та логування запитів
-- `Application/` — сервіси, DTO, мапери
-- `Domain/` — сутності та контракти репозиторіїв
-- `Infrastructure/` — EF Core (`KinoPoshukDbContext`), репозиторії, клієнт OMDb API
-- `SharedKernel/` — винятки, константи, розширення
-- `wwwroot/` — фронтенд (Пошук / Обране / Історія)
+```
+KinoPoshuk.sln
+│
+├── KinoPoshuk/                # PL — Presentation Layer (Web API)
+│   ├── Controllers/
+│   ├── Middleware/
+│   ├── wwwroot/                # Пошук / Обране / Історія
+│   └── Program.cs
+│
+├── KinoPoshuk.BLL/             # Business Logic Layer
+│   ├── Interfaces/IMovieService.cs
+│   ├── Services/MovieService.cs
+│   ├── DTO/
+│   └── Mapping/MovieMapper.cs
+│
+├── KinoPoshuk.DAL/             # Data Access Layer
+│   ├── Entities/                # FavoriteMovie, SearchHistoryEntry
+│   ├── Interfaces/               # IRepository<T>, IFavoriteMovieRepository, ISearchHistoryRepository, IOmdbApiClient
+│   ├── Repositories/
+│   ├── ExternalServices/         # OmdbApiClient (зовнішнє джерело даних — OMDb API)
+│   ├── Data/KinoPoshukDbContext.cs
+│   ├── Exceptions/, Constants/, Extensions/
+│   └── Migrations/
+│
+└── KinoPoshuk.Tests/            # NUnit + Moq тести для BLL
+```
+
+Напрямок залежностей: `PL → BLL → DAL`. PL (Program.cs) також напряму звертається до DAL лише для композиції DI (реєстрація `DbContext`/репозиторіїв) — сама бізнес-логіка йде тільки через `IMovieService` з BLL.

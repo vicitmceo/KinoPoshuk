@@ -15,7 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KinoPoshuk.csproj" />
+    <ProjectReference Include="..\KinoPoshuk.BLL\KinoPoshuk.BLL.csproj" />
+    <ProjectReference Include="..\KinoPoshuk.DAL\KinoPoshuk.DAL.csproj" />
   </ItemGroup>
 
 </Project>

@@ -11,6 +11,14 @@
     <Content Remove="KinoPoshuk.Tests\**" />
     <EmbeddedResource Remove="KinoPoshuk.Tests\**" />
     <None Remove="KinoPoshuk.Tests\**" />
+    <Compile Remove="KinoPoshuk.DAL\**" />
+    <Content Remove="KinoPoshuk.DAL\**" />
+    <EmbeddedResource Remove="KinoPoshuk.DAL\**" />
+    <None Remove="KinoPoshuk.DAL\**" />
+    <Compile Remove="KinoPoshuk.BLL\**" />
+    <Content Remove="KinoPoshuk.BLL\**" />
+    <EmbeddedResource Remove="KinoPoshuk.BLL\**" />
+    <None Remove="KinoPoshuk.BLL\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +27,11 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="KinoPoshuk.BLL\KinoPoshuk.BLL.csproj" />
+    <ProjectReference Include="KinoPoshuk.DAL\KinoPoshuk.DAL.csproj" />
   </ItemGroup>
 
 </Project>

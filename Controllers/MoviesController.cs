@@ -1,6 +1,6 @@
-using KinoPoshuk.Application.DTO;
-using KinoPoshuk.Application.Interfaces;
-using KinoPoshuk.SharedKernel.Constants;
+using KinoPoshuk.BLL.DTO;
+using KinoPoshuk.BLL.Interfaces;
+using KinoPoshuk.DAL.Constants;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KinoPoshuk.Controllers;

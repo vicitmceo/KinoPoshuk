@@ -1,9 +1,9 @@
-using KinoPoshuk.Application.DTO;
-using KinoPoshuk.Application.Interfaces;
-using KinoPoshuk.Application.Services;
-using KinoPoshuk.Domain.Entities;
-using KinoPoshuk.Domain.Interfaces;
-using KinoPoshuk.SharedKernel.Exceptions;
+using KinoPoshuk.BLL.DTO;
+using KinoPoshuk.BLL.Services;
+using KinoPoshuk.DAL.DTO;
+using KinoPoshuk.DAL.Entities;
+using KinoPoshuk.DAL.Exceptions;
+using KinoPoshuk.DAL.Interfaces;
 using Moq;
 using NUnit.Framework;
 

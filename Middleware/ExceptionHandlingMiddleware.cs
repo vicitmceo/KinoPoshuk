@@ -1,5 +1,5 @@
 using System.Text.Json;
-using KinoPoshuk.SharedKernel.Exceptions;
+using KinoPoshuk.DAL.Exceptions;
 
 namespace KinoPoshuk.Middleware;
 
